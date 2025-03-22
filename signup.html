@@ -90,7 +90,7 @@
             <input type="password" id="signupPassword" placeholder="Password">
             <button id="signupButton">Sign Up</button>
             <div class="form-switch">
-                Already have an account? <a href="index.html" id="login-link">Login</a>
+                Already have an account? <a href="login.html" id="login-link">Login</a>
             </div>
         </div>
     </div>
@@ -136,7 +136,7 @@
                 signupErrorMessage.style.display = 'block';
                 // Optionally redirect to login page after a delay
                 setTimeout(() => {
-                    window.location.href = "index.html"; // Redirect to the login page
+                    window.location.href = "login.html"; // Redirect to the login page
                 }, 3000); // 3 seconds
                 // Clear input fields
                 signupUsernameInput.value = '';
