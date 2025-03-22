@@ -236,13 +236,20 @@
 </head>
 <body>
     <div class="container" id="admin-app-container" style="display: none;">
-    <header>
+        <header>
+            <nav>
+                <a href="home.html">Home</a>
+                <a href="index.html">User Login</a>
+                <a href="features.html" target="_blank">Key Features</a>
+                <a href="feedback.html" target="_blank">Feedback</a>
+                <a href="contact.html" target="_blank">Contact Us</a>
+                <a href="admin.html" class="active">Admin</a>
+            </nav>
              <button id="adminLogoutButton" class="logout-button button-secondary">
                 Logout
             </button>
-            <h1>welcome SAKSHI</h1>
-            <p class="subtitle">Manage users and feedback for the Hindi OCR Application</p>
-            <p class="attribution">Powered by Sakshi's Hindi OCR Engine</p>
+            <h1>Vision and Discern Admin Panel</h1>
+            <p class="subtitle">Manage users and feedback for the Vision and Discern applications </p>
 
         </header>
 
@@ -309,9 +316,9 @@
             <p>Login to access the Admin Panel.</p>
             <div class="error-message" id="adminLoginErrorMessage"></div>
              <label for="adminUsername">Username</label>
-            <input type="text" id="adminUsername" placeholder="Username">
+            <input type="text" id="adminUsername" placeholder="Username" value="admin">
              <label for="adminPassword">Password</label>
-            <input type="password" id="adminPassword" placeholder="Password">
+            <input type="password" id="adminPassword" placeholder="Password" value="adminpassword">
             <button id="adminLoginButton">Login</button>
         </div>
     </div>
@@ -395,7 +402,7 @@
             adminAppContainer.style.display = 'none';
             loginContainer.style.display = 'flex';
              // Redirect to index.html
-            window.location.href = "index.html";
+            window.location.href = "admin.html";
         });
 
 

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vision and Discern - Sign Up</title>
+    <link rel="stylesheet" href="style.css">  <!-- Link to your main stylesheet -->
+    <style>
+        /* Specific styling for the signup page */
+        #signup-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /*  Full-screen height */
+            background: linear-gradient(135deg, var(--gray-50), var(--gray-100)); /* Background from style.css */
+            padding: 2rem;
+        }
+
+        .auth-card {
+            background: white;
+            border-radius: var(--radius-lg); /* From style.css */
+            padding: 2.5rem;
+            box-shadow: var(--shadow-lg); /* From style.css */
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            border: 1px solid var(--gray-200); /* From style.css */
+        }
+
+        .auth-card h2 {
+            font-size: 2rem;
+            color: var(--primary); /* From style.css */
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .auth-card input[type="text"],
+        .auth-card input[type="password"],
+        .auth-card input[type="email"] {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid var(--gray-300); /* From style.css */
+            border-radius: var(--radius); /* From style.css */
+            font-size: 1rem;
+            transition: all 0.2s ease;
+        }
+
+        .auth-card input:focus {
+            outline: none;
+            border-color: var(--primary); /* From style.css */
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1); /* From style.css */
+        }
+
+        .auth-card button {
+            width: 100%;
+            padding: 0.875rem;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        .auth-card .form-switch {
+            margin-top: 1.25rem;
+            font-size: 0.875rem;
+            color: var(--gray-400); /* From style.css */
+        }
+
+        .auth-card .form-switch a {
+            color: var(--primary); /* From style.css */
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .auth-card .form-switch a:hover {
+            color: var(--primary-dark); /* From style.css */
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div id="signup-container">
+        <div class="auth-card">
+            <h2>Create Account</h2>
+            <p>Sign up to unlock the power of AI.</p>
+            <div class="error-message" id="signupErrorMessage" style="display:none;"></div>
+            <input type="text" id="signupUsername" placeholder="Username">
+            <input type="email" id="signupEmail" placeholder="Email">
+            <input type="password" id="signupPassword" placeholder="Password">
+            <button id="signupButton">Sign Up</button>
+            <div class="form-switch">
+                Already have an account? <a href="index.html" id="login-link">Login</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE_URL = 'https://sameernotes-ocr.hf.space'; // Replace with your API base URL
+        const signupButton = document.getElementById('signupButton');
+        const signupUsernameInput = document.getElementById('signupUsername');
+        const signupEmailInput = document.getElementById('signupEmail');
+        const signupPasswordInput = document.getElementById('signupPassword');
+        const signupErrorMessage = document.getElementById('signupErrorMessage');
+
+        signupButton.addEventListener('click', async () => {
+            const username = signupUsernameInput.value;
+            const email = signupEmailInput.value;
+            const password = signupPasswordInput.value;
+
+            if (!username || !email || !password) {
+                signupErrorMessage.textContent = "Please fill in all fields.";
+                signupErrorMessage.style.display = 'block';
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/signup`, { //  Your signup endpoint
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, email, password })
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    signupErrorMessage.textContent = `Signup failed: ${errorData.detail || 'An unexpected error occurred.'}`;
+                    signupErrorMessage.style.display = 'block';
+                    return;
+                }
+
+                // Successful signup
+                signupErrorMessage.textContent = "Signup successful! Please login.";
+                signupErrorMessage.style.color = 'green';  // Indicate success
+                signupErrorMessage.style.display = 'block';
+                // Optionally redirect to login page after a delay
+                setTimeout(() => {
+                    window.location.href = "index.html"; // Redirect to the login page
+                }, 3000); // 3 seconds
+                // Clear input fields
+                signupUsernameInput.value = '';
+                signupEmailInput.value = '';
+                signupPasswordInput.value = '';
+
+            } catch (error) {
+                signupErrorMessage.textContent = "Error during signup. Please try again.";
+                signupErrorMessage.style.display = 'block';
+                console.error("Signup error:", error);
+            }
+        });
+    </script>
+</body>
+</html>

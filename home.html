@@ -1,53 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hindi OCR App - Home</title>
+    <title>Vision and Discern - Home</title>
     <link rel="stylesheet" href="style.css"> <!-- Link to external CSS -->
 </head>
+
 <body>
     <div class="container" id="app-container">
         <header>
             <nav>
-                <a href="home.html"class="active">Home</a>
-                <a href="index.html">OCR </a>
-                
+                <a href="home.html" class="active">Home</a>
+                <a href="index.html">Login</a>
                 <a href="features.html">Key Features</a>
                 <a href="feedback.html">Feedback</a>
                 <a href="contact.html">Contact Us</a>
             </nav>
-            <h1>Hindi OCR Application</h1>
-            <p class="subtitle">Convert Images to Hindi Text with Ease</p>
-            <p class="attribution">Powered by Sakshi's Hindi OCR Engine</p>
+            <h1>Vision and Discern</h1>
+            <p class="subtitle">Unlock the Power of AI for Text Analysis</p>
+            <p class="attribution">Developed by D. Sakshi - MCA Final Year, BIT Durg, Chhattisgarh | © SlimShadow Org. All Rights Reserved.</p>
             <button id="logoutButton" class="logout-button button-secondary">Logout</button>
         </header>
 
         <div class="main-content">
-            <!-- Welcome Section -->
-            <div class="welcome">
-                <h2>Welcome to Hindi OCR</h2>
-                <p>Upload an image to extract Hindi text instantly!</p>
-            </div>
+            <!-- Hero Section -->
+            <section class="hero">
+                <h2>Welcome to Vision and Discern!</h2>
+                <p>
+                    Experience the future of text analysis with our suite of AI-powered tools.
+                    Whether it's extracting Hindi text, translating languages, or predicting gender,
+                    we've got you covered.
+                </p>
+            </section>
 
-            <!-- How to Use Section -->
-            <div class="how-to-use">
-                <h2>How to Use</h2>
-                <ol>
-                    <li>Register with your mail id.</li>
+            <!-- OCR Highlight -->
+            <section class="feature-highlight">
+                <h3><i class="fas fa-file-image"></i> Effortless Hindi OCR</h3>
+                <p>
+                    Convert images of Hindi text into editable, searchable content with unmatched accuracy.
+                    Our OCR engine is designed to handle various fonts and layouts.
+                </p>
+            </section>
 
-                    <li>Click the **Choose File** button below to upload an image containing Hindi text.</li>
-                    <li>Press the **Process Image** button to start text extraction.</li>
-                    <li>Wait for the system to analyze the image and extract the text.</li>
-                    <li>Copy and use the extracted text as needed.</li>
-                    <li>Provide feedback to help improve the system.</li>
-                </ol>
-            </div>
+             <!-- Translation Highlight -->
+            <section class="feature-highlight">
+                <h3><i class="fas fa-language"></i> Seamless Translation</h3>
+                <p>
+                   Break down language barriers. Effortlessly translate Hindi text into multiple languages.
+                </p>
+            </section>
 
+
+            <!-- Gender Prediction Highlight -->
+            <section class="feature-highlight">
+                <h3><i class="fas fa-venus-mars"></i> Smart Gender Prediction</h3>
+                <p>
+                   Get insights from names!  Our AI predicts gender with accuracy, offering valuable data.
+                </p>
+            </section>
+
+
+            <!-- Call to Action -->
+            <section class="cta">
+                <p>Ready to get started? Explore our tools and experience the power of AI.</p>
+                <a href="index.html" class="primary-button">Get Started with OCR</a>
+                <a href="index.html" target="_blank" class="primary-button">Try Translation</a>
+                <a href="index.html" target="_blank" class="primary-button">Try Gender Prediction</a>
+            </section>
         </div>
 
         <div class="credits">
-            <p>Powered by <strong>D SAKSHI</strong> (MCA Final Year BIT Durg, Chhattisgarh) | © SlimShadow Org. All Rights Reserved.</p>
+
         </div>
     </div>
 
@@ -57,6 +82,6 @@
         window.location.href = "index.html";
     });
 </script>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </body>
 </html>
